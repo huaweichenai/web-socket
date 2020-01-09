@@ -30,14 +30,14 @@ $configs = [
 
 #### websocket启动<br>
 ```
-$server = new WebSocketServer($host, %port, $configs);
+$server = new WebSocketServer($host, $port, $configs);
 $server->handshake = true;//设置自定义握手配置
 $server->run();
 ```
 
 #### websocket停止<br>
 ```
-$server = new WebSocketServer($host, %port, $configs);
+$server = new WebSocketServer($host, $port, $configs);
 $server->stop();
 ```
 
@@ -47,6 +47,11 @@ $server->stop();
 ```
 class Swoole extends WebSocketServer
 {
+    /**
+     * @var bool 
+     * 开启自定义握手处理
+     */
+    public $handshake = true;
 
     /**
      * @param \swoole_websocket_server $server
@@ -127,7 +132,6 @@ class Swoole extends WebSocketServer
 
 }
 ```
-
 在上面的业务代码中我们可以使用下面方法向指定客户端发送信息
 ```
 $this->sendMessage($request->fd, $server,$data);
@@ -137,4 +141,9 @@ $this->sendMessage($request->fd, $server,$data);
 $this->getParams($request) //获取客户端连接路由
 $this->getRoute($request) //获取客户端传参
 ```
-
+***2***
+自定义类创建好了之后
+```
+$server = new Swoole($host, $port, $configs);
+$server->run();
+```
