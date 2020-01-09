@@ -1,6 +1,6 @@
   
 {
-    "name": "huaweichenai/webSocket",
+    "name": "huaweichenai/web-socket",
     "description": "This is a service class that implements websocket",
     "keywords": ["webSocket","php", "server"],
     "license": "BSD-3-Clause",
