@@ -14,7 +14,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "huaweichenai\\webSocket\\": "src"
+            "huaweichenai\\web-socket\\": "src"
         }
     }
 }
