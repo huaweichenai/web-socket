@@ -45,7 +45,14 @@ abstract class Server
         ];
 
         $this->configs = array_merge($this->configs, $config);
+        
+        if (!is_dir(dirname($this->configs['log_file']))) {
+            rmdir(dirname($this->configs['log_file']));
+        }
 
+        if (!is_dir(dirname($this->configs['pid_file']))) {
+            rmdir(dirname($this->configs['pid_file']));
+        }
 
         $this->host = $host ? $host: $this->host;
         $this->port = $host ? $port: $this->port;
